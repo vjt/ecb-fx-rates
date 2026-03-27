@@ -88,13 +88,13 @@ class EcbRatesClient:
         """
         today = date.today()
 
-        if year == today.year or (year == today.year - 1 and today.month <= 3):
-            # Recent enough for the 90-day feed to cover (partially)
+        if year == today.year:
+            # Current year: 90-day feed likely has enough coverage
             all_days = await self._fetch_and_parse(session, _HIST_90D_URL)
             year_days = [d for d in all_days if d.date.year == year]
-            if year_days:
+            if len(year_days) >= 20:
                 return year_days
-            # 90-day feed didn't cover this year, fall through to full history
+            # Insufficient coverage, fall through to full history
 
         all_days = await self._fetch_and_parse(session, _HIST_URL)
         return [d for d in all_days if d.date.year == year]
