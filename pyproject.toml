@@ -2,10 +2,27 @@
 name = "ecb-fx-rates"
 version = "0.1.0"
 description = "Async client for ECB daily reference exchange rates"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Marcello Barnaba", email = "vjt@openssl.it" }]
 requires-python = ">=3.12"
+keywords = ["ecb", "european-central-bank", "forex", "exchange-rates", "eurofxref", "async"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: AsyncIO",
+    "Topic :: Office/Business :: Financial",
+]
 dependencies = [
     "aiohttp>=3.9",
 ]
+
+[project.urls]
+Homepage = "https://github.com/vjt/ecb-fx-rates"
+Repository = "https://github.com/vjt/ecb-fx-rates"
+Issues = "https://github.com/vjt/ecb-fx-rates/issues"
 
 [project.optional-dependencies]
 dev = [
